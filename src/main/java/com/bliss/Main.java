@@ -2,16 +2,19 @@ package com.bliss;
 
 import com.bliss.model.Test;
 
+
 public class Main {
 	
 
 	  public Main() {
 	  
 	      try {
+	    	  while(true) {
 	    	  Test t=new Test();
 	    	  t.EnvoyeInfo();
 	        // et faire une pause
-	        Thread.sleep(600);
+	        Thread.sleep(6000);
+	        }
 	      }
 	      catch (InterruptedException ex) {}
 	    
