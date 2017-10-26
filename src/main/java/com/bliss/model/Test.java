@@ -40,7 +40,7 @@ public class Test {
 			}
 			
 		    JSONObject json = new JSONObject();
-		    json.put("idMachine", 1);
+		    //sjson.put("idMachine", 1);
 		    json.put("idSalle", 1);
 		    json.put("nomMachine", "pc1");
 		    json.put("urlMachine", url);
