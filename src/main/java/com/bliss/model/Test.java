@@ -38,7 +38,7 @@ public class Test {
 			else {
 				message = "RAM KO";
 			}
-			
+			// TEST COMM
 		    JSONObject json = new JSONObject();
 		    //sjson.put("idMachine", 1);
 		    json.put("idSalle", 1);
@@ -51,7 +51,8 @@ public class Test {
 		    json.put("disque", disque);
 		    String value=json.toString();
 		    StringEntity entity = new StringEntity(value);
-		    HttpPost request = new HttpPost("http://localhost:8080/MonitoringToolsBO/check");
+		    //HttpPost request = new HttpPost("http://localhost:8080/MonitoringToolsBO/check");
+		    HttpPost request = new HttpPost("http://10.92.5.69:8080/MonitoringToolsBO/check");
 		    request.addHeader("content-type", "application/json");
 		    request.setEntity(entity);
 		    HttpResponse response = httpClient.execute(request);

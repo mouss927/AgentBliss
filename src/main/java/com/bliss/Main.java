@@ -13,7 +13,7 @@ public class Main {
 	    	  Test t=new Test();
 	    	  t.EnvoyeInfo();
 	        // et faire une pause
-	        Thread.sleep(6000);
+	        Thread.sleep(6000000);
 	        }
 	      }
 	      catch (InterruptedException ex) {}
