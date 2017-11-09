@@ -28,21 +28,29 @@ public class Test {
 			String message ="OK";
 			statut = Traitement.error(ram, "ram");
 			Date d = new Date();
+			String nompc;
 			long time = d.getTime()/1000;
-			if(statut) {
-				statut = Traitement.error(disque, "disque");
-				if(!statut) {
-					message="DISQUE KO";
-				}
-			}
-			else {
-				message = "RAM KO";
-			}
+			if(!statut) {
+                statut = Traitement.error(disque, "disque");
+                if(!statut) {
+                    message="DISQUE & RAM KO";
+                }
+               
+                else{
+                    message = "RAM KO";
+                }
+            }
+            else if(statut) {
+                statut = Traitement.error(disque, "disque");
+                if(!statut) {
+                    message="DISQUE KO";
+                }
+            }
 			// TEST COMM
 		    JSONObject json = new JSONObject();
 		    //sjson.put("idMachine", 1);
 		    json.put("idSalle", 1);
-		    json.put("nomMachine", "pc1");
+		    json.put("nomMachine", "pcNTMs");
 		    json.put("urlMachine", url);
 		    json.put("etat", statut);
 		    json.put("ram", ram);
