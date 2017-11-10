@@ -25,7 +25,6 @@ public class Test {
 			boolean statut = true;
 			float ram = Traitement.ram();
 			float disque = Traitement.disque();
-			String test = Traitement.getMacAddress();
 			String message ="OK";
 			statut = Traitement.error(ram, "ram");
 			Date d = new Date();
