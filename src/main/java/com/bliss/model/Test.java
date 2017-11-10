@@ -21,10 +21,11 @@ public class Test {
 		HttpClient httpClient = HttpClientBuilder.create().build(); //Use this instead 
 
 		try {
-			String url=java.net.InetAddress.getLocalHost().getHostAddress();
+			String url=Traitement.getMacAddress();
 			boolean statut = true;
 			float ram = Traitement.ram();
 			float disque = Traitement.disque();
+			String test = Traitement.getMacAddress();
 			String message ="OK";
 			statut = Traitement.error(ram, "ram");
 			Date d = new Date();
@@ -50,7 +51,7 @@ public class Test {
 		    JSONObject json = new JSONObject();
 		    //sjson.put("idMachine", 1);
 		    json.put("idSalle", 1);
-		    json.put("nomMachine", "pcNTMs");
+		    json.put("nomMachine", "pcMouhsin");
 		    json.put("urlMachine", url);
 		    json.put("etat", statut);
 		    json.put("ram", ram);

@@ -16,10 +16,14 @@ import java.lang.reflect.Modifier;
 import java.net.HttpURLConnection;
 import java.net.Inet4Address;
 import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
 import java.net.URL;
 import java.net.UnknownHostException;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
+import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -114,8 +118,27 @@ public class Traitement {
 		
 	}
 
-	
-	
-	 
-	
+	public static String getMacAddress() {
+	    // ??? NIC ? MAC??????????
+	    try {
+	        Enumeration<NetworkInterface> networkInterfaces = NetworkInterface
+	                .getNetworkInterfaces();
+	        while (networkInterfaces.hasMoreElements()) {
+	            NetworkInterface nic = networkInterfaces.nextElement();
+	            byte[] hardwareAddress = nic.getHardwareAddress();
+	            StringBuilder buffer = new StringBuilder();
+	            if (null != hardwareAddress) {
+	                for (byte b : hardwareAddress) {
+	                    buffer.append(String.format("%02X", b));
+	                }
+	                return buffer.toString();
+	            }
+	        }
+	        // nic???????????????????
+	        return Long.toHexString(System.currentTimeMillis());
+	    } catch (SocketException e) {
+	        // ??????????????????????
+	        return Long.toHexString(System.currentTimeMillis());
+	    }
+	}
 }
